@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MiCrad | Scope of Work</title>
+  <link rel="icon" href="https://example.com/favicon.png" type="image/png" />
   <style>
     body {
       font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -33,7 +34,7 @@
     }
 
     main {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 40px auto;
       background: white;
       padding: 40px;
@@ -47,14 +48,67 @@
       padding-bottom: 5px;
     }
 
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      perspective: 1000px;
+    }
+
+    .module-card {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      transform-style: preserve-3d;
+      transition: transform 0.8s;
+      cursor: pointer;
+    }
+
+    .module-card:hover {
+      transform: rotateY(180deg);
+    }
+
+    .module-front, .module-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-left: 5px solid #253c78;
+      border-radius: 8px;
+      padding: 15px 20px;
+      box-sizing: border-box;
+    }
+
+    .module-front {
+      background: #f4f6fa;
+    }
+
+    .module-back {
+      background: #253c78;
+      color: white;
+      transform: rotateY(180deg);
+    }
+
+    svg {
+      display: block;
+      margin: 30px auto;
+      max-width: 600px;
+    }
+
+    .coresoul {
+      background: #253c78;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
       margin: 20px 0;
     }
 
-    table th,
-    table td {
+    table th, table td {
       border: 1px solid #ddd;
       padding: 12px;
       text-align: left;
@@ -63,29 +117,6 @@
     table th {
       background: #253c78;
       color: white;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    .module-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-
-    @media (min-width: 700px) {
-      .module-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .module-card {
-      background: #f4f6fa;
-      border-left: 5px solid #253c78;
-      padding: 15px 20px;
-      border-radius: 8px;
     }
 
     footer {
@@ -106,78 +137,91 @@
   <main>
     <section>
       <h2>1. Introduction</h2>
-      <p>
-        MiCrad is a mobile-first platform transforming traditional business cards into interactive digital experiences. Leveraging NFC and QR code technology, it enables professionals to share dynamic profiles with a simple tap or scan, bridging physical and digital networking seamlessly.
-      </p>
+      <p>MiCrad transforms traditional business cards into interactive digital profiles, bridging physical and digital networking seamlessly through NFC and QR code technology.</p>
     </section>
 
     <section>
       <h2>2. Core Features & Modules</h2>
       <div class="module-grid">
         <div class="module-card">
-          <h3>Profile Setup</h3>
-          <p>Users create and customise profiles with contact details, social links, portfolios, videos, and branding.</p>
+          <div class="module-front">
+            <h3>Profile Setup</h3>
+            <p>Setup & customise user profiles.</p>
+          </div>
+          <div class="module-back">
+            <h3>Profile Setup</h3>
+            <p>Embed contact info, social links, portfolios, and videos with ease.</p>
+          </div>
         </div>
         <div class="module-card">
-          <h3>QR/NFC Integration</h3>
-          <p>Generates unique QR codes and NFC tag mappings for instant card activation and public profile linking.</p>
+          <div class="module-front">
+            <h3>QR/NFC Integration</h3>
+            <p>Generate codes instantly.</p>
+          </div>
+          <div class="module-back">
+            <h3>QR/NFC Integration</h3>
+            <p>Unique QR codes & NFC tag mappings link directly to public profiles.</p>
+          </div>
         </div>
         <div class="module-card">
-          <h3>Public Profile Access</h3>
-          <p>Recipients tap or scan cards to view mobile-optimised public profiles instantly.</p>
+          <div class="module-front">
+            <h3>Public Profile Access</h3>
+            <p>Effortless scanning.</p>
+          </div>
+          <div class="module-back">
+            <h3>Public Profile Access</h3>
+            <p>View dynamic profiles with contact and branding info in one tap.</p>
+          </div>
         </div>
         <div class="module-card">
-          <h3>Analytics Dashboard</h3>
-          <p>Track scans, taps, location data (optional with consent), and profile views in real-time.</p>
+          <div class="module-front">
+            <h3>Analytics Dashboard</h3>
+            <p>Track engagement.</p>
+          </div>
+          <div class="module-back">
+            <h3>Analytics Dashboard</h3>
+            <p>Monitor scans, taps, and views to understand networking impact.</p>
+          </div>
         </div>
         <div class="module-card">
-          <h3>Team/Organisation Cards <em>(Phase 2)</em></h3>
-          <p>Manage multiple cards under one organisation dashboard with standardised branding and team analytics.</p>
+          <div class="module-front">
+            <h3>Team Cards (Phase 2)</h3>
+            <p>Organisation management.</p>
+          </div>
+          <div class="module-back">
+            <h3>Team Cards (Phase 2)</h3>
+            <p>Manage teams, standardise branding, and view analytics at scale.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <section>
       <h2>3. User Flow</h2>
-      <h4>For Card Owners (App Users)</h4>
-      <ul>
-        <li>Sign Up / Log In via email, Google, or phone (Firebase Auth)</li>
-        <li>Onboarding Guide introducing MiCrad’s features</li>
-        <li>Profile Builder: input contact, socials, media, branding</li>
-        <li>Preview & Publish with QR/NFC code generation</li>
-        <li>Access analytics dashboard for engagement stats</li>
-      </ul>
-
-      <h4>For Recipients (Clients)</h4>
-      <ul>
-        <li>Scan QR Code or tap NFC card</li>
-        <li>Instant redirect to owner’s public profile page</li>
-        <li>Save contact options: vCard download, copy details, connect via social links</li>
-        <li><em>(Future)</em> Lead capture form integration</li>
-      </ul>
+      <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+        <rect width="600" height="300" fill="#f4f6fa"/>
+        <circle cx="100" cy="150" r="40" fill="#253c78"/>
+        <text x="100" y="155" font-size="12" text-anchor="middle" fill="white">Sign Up</text>
+        <line x1="140" y1="150" x2="200" y2="150" stroke="#253c78" stroke-width="2"/>
+        <circle cx="240" cy="150" r="40" fill="#253c78"/>
+        <text x="240" y="155" font-size="12" text-anchor="middle" fill="white">Build Profile</text>
+        <line x1="280" y1="150" x2="340" y2="150" stroke="#253c78" stroke-width="2"/>
+        <circle cx="380" cy="150" r="40" fill="#253c78"/>
+        <text x="380" y="155" font-size="12" text-anchor="middle" fill="white">Share QR/NFC</text>
+        <line x1="420" y1="150" x2="480" y2="150" stroke="#253c78" stroke-width="2"/>
+        <circle cx="520" cy="150" r="40" fill="#253c78"/>
+        <text x="520" y="155" font-size="12" text-anchor="middle" fill="white">View Profile</text>
+      </svg>
     </section>
 
     <section>
-      <h2>4. Technical Requirements</h2>
-      <ul>
-        <li><strong>Frontend:</strong> Flutter / React Native for cross-platform app</li>
-        <li><strong>Firebase Authentication:</strong> email, Google, phone login</li>
-        <li><strong>Firestore:</strong> profiles, QR/NFC mappings, analytics logs</li>
-        <li><strong>Cloud Functions:</strong> dynamic link resolution, tap/scan logging, integrations</li>
-        <li><strong>Hosting:</strong> Firebase Hosting for public profile pages</li>
-        <li><strong>Storage:</strong> images, logos, media assets</li>
-        <li><strong>Dynamic Links:</strong> seamless access across devices</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>5. Design Guidelines</h2>
-      <ul>
-        <li>Professional, minimalist UI with strong brand colours</li>
-        <li>Intuitive onboarding flows with visual progress</li>
-        <li>Mobile-first public profiles with fast load speeds</li>
-        <li>Accessible design adhering to WCAG standards</li>
-      </ul>
+      <h2>5. Design Guidelines (CoreSoul)</h2>
+      <div class="coresoul">
+        <p><strong>Professional Minimalism:</strong> Clean layouts, brand colour usage, and intuitive typography for trust and clarity.</p>
+        <p><strong>Intuitive Flow:</strong> Guided onboarding with visual progress to reduce friction.</p>
+        <p><strong>Mobile First:</strong> Fast loading, responsive design for all devices.</p>
+        <p><strong>Accessibility:</strong> Inclusive design adhering to WCAG standards to serve all users.</p>
+      </div>
     </section>
 
     <section>
@@ -185,7 +229,7 @@
       <ul>
         <li>Data encryption in transit and at rest</li>
         <li>Profile privacy controls (public, private, restricted)</li>
-        <li>Compliance with GDPR and POPIA data regulations</li>
+        <li>GDPR and POPIA compliance</li>
       </ul>
     </section>
 
