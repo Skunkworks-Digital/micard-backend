@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MiCrad | Scope of Work</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #f9fafb;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(90deg, #1b1f3b, #253c78);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      color: #253c78;
+      border-bottom: 2px solid #253c78;
+      padding-bottom: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    table th,
+    table td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+
+    table th {
+      background: #253c78;
+      color: white;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .module-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 700px) {
+      .module-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .module-card {
+      background: #f4f6fa;
+      border-left: 5px solid #253c78;
+      padding: 15px 20px;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>MiCrad</h1>
+    <p>Scope of Work & Project Overview</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>1. Introduction</h2>
+      <p>
+        MiCrad is a mobile-first platform transforming traditional business cards into interactive digital experiences. Leveraging NFC and QR code technology, it enables professionals to share dynamic profiles with a simple tap or scan, bridging physical and digital networking seamlessly.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Core Features & Modules</h2>
+      <div class="module-grid">
+        <div class="module-card">
+          <h3>Profile Setup</h3>
+          <p>Users create and customise profiles with contact details, social links, portfolios, videos, and branding.</p>
+        </div>
+        <div class="module-card">
+          <h3>QR/NFC Integration</h3>
+          <p>Generates unique QR codes and NFC tag mappings for instant card activation and public profile linking.</p>
+        </div>
+        <div class="module-card">
+          <h3>Public Profile Access</h3>
+          <p>Recipients tap or scan cards to view mobile-optimised public profiles instantly.</p>
+        </div>
+        <div class="module-card">
+          <h3>Analytics Dashboard</h3>
+          <p>Track scans, taps, location data (optional with consent), and profile views in real-time.</p>
+        </div>
+        <div class="module-card">
+          <h3>Team/Organisation Cards <em>(Phase 2)</em></h3>
+          <p>Manage multiple cards under one organisation dashboard with standardised branding and team analytics.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>3. User Flow</h2>
+      <h4>For Card Owners (App Users)</h4>
+      <ul>
+        <li>Sign Up / Log In via email, Google, or phone (Firebase Auth)</li>
+        <li>Onboarding Guide introducing MiCrad’s features</li>
+        <li>Profile Builder: input contact, socials, media, branding</li>
+        <li>Preview & Publish with QR/NFC code generation</li>
+        <li>Access analytics dashboard for engagement stats</li>
+      </ul>
+
+      <h4>For Recipients (Clients)</h4>
+      <ul>
+        <li>Scan QR Code or tap NFC card</li>
+        <li>Instant redirect to owner’s public profile page</li>
+        <li>Save contact options: vCard download, copy details, connect via social links</li>
+        <li><em>(Future)</em> Lead capture form integration</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Technical Requirements</h2>
+      <ul>
+        <li><strong>Frontend:</strong> Flutter / React Native for cross-platform app</li>
+        <li><strong>Firebase Authentication:</strong> email, Google, phone login</li>
+        <li><strong>Firestore:</strong> profiles, QR/NFC mappings, analytics logs</li>
+        <li><strong>Cloud Functions:</strong> dynamic link resolution, tap/scan logging, integrations</li>
+        <li><strong>Hosting:</strong> Firebase Hosting for public profile pages</li>
+        <li><strong>Storage:</strong> images, logos, media assets</li>
+        <li><strong>Dynamic Links:</strong> seamless access across devices</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5. Design Guidelines</h2>
+      <ul>
+        <li>Professional, minimalist UI with strong brand colours</li>
+        <li>Intuitive onboarding flows with visual progress</li>
+        <li>Mobile-first public profiles with fast load speeds</li>
+        <li>Accessible design adhering to WCAG standards</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>6. Privacy & Security</h2>
+      <ul>
+        <li>Data encryption in transit and at rest</li>
+        <li>Profile privacy controls (public, private, restricted)</li>
+        <li>Compliance with GDPR and POPIA data regulations</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>7. Milestones & Timeline</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Phase</th>
+            <th>Deliverables</th>
+            <th>ETA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Phase 1 – Planning</td>
+            <td>Scope finalisation, Firestore schema design</td>
+            <td>Week 1</td>
+          </tr>
+          <tr>
+            <td>Phase 2 – Development</td>
+            <td>Auth setup, Profile Builder, QR/NFC integration</td>
+            <td>Weeks 2-5</td>
+          </tr>
+          <tr>
+            <td>Phase 3 – Public Profiles</td>
+            <td>Public profile pages with dynamic links</td>
+            <td>Weeks 5-6</td>
+          </tr>
+          <tr>
+            <td>Phase 4 – Analytics</td>
+            <td>Tap/scan tracking, dashboard implementation</td>
+            <td>Weeks 7-8</td>
+          </tr>
+          <tr>
+            <td>Phase 5 – Testing & Launch</td>
+            <td>UAT, bug fixing, production deployment</td>
+            <td>Weeks 9-10</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 MiCrad. Developed with strategy and precision.
+  </footer>
+</body>
+</html>
