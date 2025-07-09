@@ -18,11 +18,23 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install dependencies
+      - name: Install backend dependencies
         run: npm install
 
-      - name: Run tests
+      - name: Run backend tests
         run: npm test
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Python dependencies (if any)
+        run: pip install --upgrade pip
+
+      - name: Generate embedded index.html
+        run: |
+          python generate_micrad_index.py
 
       - name: Build Docker image
         run: docker build -t micard-backend .
